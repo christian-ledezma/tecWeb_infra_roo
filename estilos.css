@@ -412,6 +412,7 @@ input[type="radio"] {
 .section-4 {
   width: 100%;
   margin-top: 50px;
+  margin-bottom: 100px;
   padding-left: 0;
 }
 
@@ -478,30 +479,58 @@ input[type="radio"] {
 }
 
 
+
 .footer{
-  margin-top: 80px;
-  padding-top: 20px;
   background-color: rgba(245,245,245,255);
 }
 
 .c-footer__inner{
+  padding-top: 80px;
+  padding-left: 80px;
+  padding-right: 80px;
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
-  padding: 20px;
 }
-
-
 
 
 /* Contenedor del menú de footer */
 .c-footer__menu-container {
   display: flex;
   flex: 1;
-  padding-left: 60px;
   gap: 100px; /* Espaciado entre columnas */
-  margin-right: 40px; /* Espacio entre el menú y el newsletter */
 }
+
+  /* Contenedor de íconos sociales */
+.o-social-row__c-footer-social {
+  display: flex;
+  gap: 20px; /* Espacio entre íconos */
+  margin-top: 20px;
+}
+
+/* Enlaces de íconos sociales */
+.o-social-row__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.o-social-row__link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Íconos */
+.o-social-row__icon {
+  width: 20px;
+  height: 20px;
+  transition: opacity 0.3s ease;
+}
+
 
 /* Columna del menú de footer */
 .c-footer-menu__column {
@@ -536,15 +565,38 @@ input[type="radio"] {
   line-height: 1.4;
 }
 
+.c-footer_acknowledgement{
+  font-size: 12px;
+  padding-left: 68%;
+  text-align: right;
+}
+
+.c-footer__address {
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+}
+
 /* Estructura responsive para el footer completo */
 @media (max-width: 768px) {
-  .c-footer__menu-container {
+  .c-footer__inner {
     flex-direction: column;
-    gap: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .c-footer__menu-container {
+    padding-top: 40px;
+    gap: 100px;
     margin-right: 0;
     margin-bottom: 30px;
   }
-  
+
+  .c-footer_acknowledgement {
+    padding-left: 0px;
+    text-align: left;
+  }
+
   .c-footer-menu__link-item {
     margin-bottom: 10px;
   }
@@ -663,7 +715,12 @@ input[type="radio"] {
     font-size: 14px;
     padding: 10px 40px 10px 0;
   }
+
+  .c-footer__o-form{
+    max-width: 360px;
+  }
 }
+
 
 
 /*
@@ -676,9 +733,11 @@ input[type="radio"] {
 }*/
 
 .c-footer__lower {
-  border-top: 1px solid #eaeaea;
-  padding: 30px;
-  margin-top: 30px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  background-color: white;
 }
 
 .c-footer__lower-inner {
@@ -686,14 +745,12 @@ input[type="radio"] {
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 /* Copyright text */
 .c-footer__copyright {
-  font-size: 14px;
-  color: #666;
+  font-size: 12px;
+  color: #bfbebe;
   margin: 0;
 }
 
@@ -705,8 +762,8 @@ input[type="radio"] {
 }
 
 .c-footer__store-selector-title {
-  font-size: 14px;
-  color: #666;
+  font-size: 12px;
+  color: #282626
 }
 
 /* Custom select styling */
@@ -734,14 +791,72 @@ input[type="radio"] {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .c-footer__lower {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+  }
   .c-footer__lower-inner {
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   
-  .c-footer__selector {
-    width: 100%;
-    justify-content: flex-start;
+}
+
+
+/* Botón flotante de WhatsApp en tonos grises */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+}
+
+.whatsapp-float__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #7e7d7d;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+  border: 1px solid #7e7d7d;
+}
+
+.whatsapp-float__link:hover {
+  transform: scale(1.1);
+  background-color: #7e7d7d;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.whatsapp-float__link:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-float__icon {
+  width: 26px;
+  height: 26px;
+  fill: #E8E8E8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .whatsapp-float {
+      bottom: 20px;
+      right: 20px;
+  }
+  
+  .whatsapp-float__link {
+      width: 48px;
+      height: 48px;
+  }
+  
+  .whatsapp-float__icon {
+      width: 22px;
+      height: 22px;
   }
 }
