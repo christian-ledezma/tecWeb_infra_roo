@@ -236,11 +236,15 @@ input[type="radio"] {
 }
   
 #item-2:checked ~ .slider-container .slider-track {
-    transform: translateX(-33.4%);
+    transform: translateX(-25%);
 }
   
 #item-3:checked ~ .slider-container .slider-track {
-    transform: translateX(-66.7%);
+    transform: translateX(-50%);
+}
+
+#item-4:checked ~ .slider-container .slider-track {
+  transform: translateX(-75%);
 }
   
 .slider-nav {
@@ -298,7 +302,12 @@ input[type="radio"] {
     display: flex;
 }
 
-#item-3:checked ~ .slider-container #prev-3 {
+#item-3:checked ~ .slider-container #prev-3,
+#item-3:checked ~ .slider-container #next-3 {
+    display: flex;
+}
+
+#item-4:checked ~ .slider-container #prev-4{
     display: flex;
 }
 
@@ -307,18 +316,28 @@ input[type="radio"] {
 #item-1:checked ~ .slider-container #prev-2,
 #item-1:checked ~ .slider-container #next-3,
 #item-1:checked ~ .slider-container #prev-3,
+#item-1:checked ~ .slider-container #next-4,
+#item-1:checked ~ .slider-container #prev-4,
 #item-2:checked ~ .slider-container #prev-1,
 #item-2:checked ~ .slider-container #next-1,
 #item-2:checked ~ .slider-container #next-3,
 #item-2:checked ~ .slider-container #prev-3,
+#item-2:checked ~ .slider-container #next-4,
+#item-2:checked ~ .slider-container #prev-4,
 #item-3:checked ~ .slider-container #prev-1,
 #item-3:checked ~ .slider-container #next-1,
 #item-3:checked ~ .slider-container #prev-2,
 #item-3:checked ~ .slider-container #next-2,
-#item-3:checked ~ .slider-container #next-3 {
-    display: none;
-}
-  
+#item-3:checked ~ .slider-container #prev-4,
+#item-4:checked ~ .slider-container #prev-1,
+#item-4:checked ~ .slider-container #next-1,
+#item-4:checked ~ .slider-container #prev-2,
+#item-4:checked ~ .slider-container #next-2,
+#item-4:checked ~ .slider-container #prev-3,
+#item-4:checked ~ .slider-container #next-3,
+#item-4:checked ~ .slider-container #next-4 {
+display: none;
+}  
 
 @media (max-width: 1024px) {
     .slide {
@@ -355,6 +374,9 @@ input[type="radio"] {
         transform: translateX(-200%);
     }
     
+    #item-4:checked ~ .slider-container .slider-track {
+      transform: translateX(-300%);
+  }
     .prev-slide, .next-slide {
         width: 40px;
         height: 80px;
