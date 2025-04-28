@@ -14,6 +14,10 @@ body{
     flex-direction: column;
 }
 
+@keyframes nav {
+  
+}
+
 .header {
     position: sticky;
     top: 0;
@@ -25,7 +29,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 1rem;
 }
 
 .c-header__inner__menu {
@@ -44,18 +48,105 @@ body{
     width: 180px;
 }
 
-.c-header__cart {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-  
-.o-icon--cart {   
-    width: 40px;
-    height: 40px;
+.c-header__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 10px;
 }
 
+.c-header__link {
+  text-decoration: none;
+  color: rgba(51, 51, 51, 1);
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
 
+.c-header__link:hover {
+  color: rgba(153, 153, 153, 1);
+}
+
+/* Search overlay */
+.c-search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background-color: white;
+  z-index: 99; /* Debajo del header */
+  margin-top: 78px; /* Espacio para el header */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Esto muestra el panel cuando el ID está en la URL */
+.c-search-overlay:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.c-search-container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+.c-search-field {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.c-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.c-search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  font-size: 1rem;
+  border: none;
+  background-color: rgba(245, 245, 245, 1);
+}
+
+.c-popular-searches h3 {
+  padding-left: 3rem;
+  font-size: 12px;
+  margin-bottom: 2rem;
+  color: rgba(170, 170, 170, 1);
+  font-weight: normal;
+}
+
+.c-search-tags {
+  padding-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: fit-content;
+}
+.c-search-tag {
+  text-decoration: none;
+  font-size: 36px;
+  color: rgba(51, 51, 51, 1);
+  transition: background-color 0.3s ease;
+  width: fit-content; 
+}
+.c-search-tag:hover {
+  color: rgba(134, 134, 134, 1);
+}
+
+.close-search {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  padding-right: 10px;
+  text-decoration: none;
+  color: rgba(51, 51, 51, 1);
+}
 
 .section-1 {
     margin-bottom: 20px;
@@ -84,12 +175,6 @@ body{
     flex-direction: column;
 }
   
-@media (min-width: 768px) {
-    .c-collecion-carousel__inner {
-      flex-direction: row;
-    }
-}
-  
 .c-collecion-carousel__header {
     padding: 20px;
     flex: 1;
@@ -104,7 +189,7 @@ body{
 .c-collecion-carousel__description {
     font-size: 16px;
     line-height: 1.5;
-    color: #555;
+    color: rgba(85, 85, 85, 1);
 }
   
 .c-collecion-carousel__carousel {
@@ -113,7 +198,7 @@ body{
     position: relative;
 }
   
-  /* Ocultar inputs de radio pero mantener su funcionalidad */
+/* Ocultar inputs de radio pero mantener su funcionalidad */
 input[type="radio"] {
     position: absolute;
     left: -9999px;
@@ -125,16 +210,14 @@ input[type="radio"] {
     height: 400px;
     overflow: hidden;
 }
-  
-  /* Track del slider */
+
 .slider-track {
     width: 100%;
     height: 100%;
     display: flex;
     transition: transform 0.8s ease-in-out;
 }
-  
-  /* Slides individuales */
+
 .slide {
     min-width: 0 0 calc(100% / 3); /* 3 imágenes */
     height: 100%;
@@ -149,17 +232,17 @@ input[type="radio"] {
     border-radius: 10px;
 }
   
-  /* Control de posición para cada slide - nuevos valores para desplazamiento gradual */
+
 #item-1:checked ~ .slider-container .slider-track {
     transform: translateX(0);
 }
   
 #item-2:checked ~ .slider-container .slider-track {
-    transform: translateX(-33.4%); /* Se mueve una posición */
+    transform: translateX(-33.4%);
 }
   
 #item-3:checked ~ .slider-container .slider-track {
-    transform: translateX(-66.7%); /* Se mueve dos posiciones */
+    transform: translateX(-66.7%);
 }
   
 .slider-nav {
@@ -183,7 +266,7 @@ input[type="radio"] {
     align-items: center;
     cursor: pointer;
     font-size: 20px;
-    color: #333;
+    color: rgba(51, 51, 51, 1);
     pointer-events: auto;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -208,8 +291,6 @@ input[type="radio"] {
   }
   
 
-  /* Controlar la visibilidad de los botones de navegación */
-/* Solo mostrar el botón relevante según el estado actual */
 #item-1:checked ~ .slider-container #next-1 {
     display: flex;
 }
@@ -223,7 +304,6 @@ input[type="radio"] {
     display: flex;
 }
 
-/* Ocultar los botones no relevantes */
 #item-1:checked ~ .slider-container #prev-1,
 #item-1:checked ~ .slider-container #next-2,
 #item-1:checked ~ .slider-container #prev-2,
@@ -250,29 +330,21 @@ input[type="radio"] {
     }
     
     #item-2:checked ~ .slider-container .slider-track {
-      transform: translateX(-100%);
-    }
-    
-    #item-3:checked ~ .slider-container .slider-track {
-      transform: translateX(-200%);
-    }
-}
-  
-@media (max-width: 1024px) {
-    .slide {
-        flex: 0 0 50%;
-    }
-
-    #item-2:checked ~ .slider-container .slider-track {
         transform: translateX(-50%);
     }
-    
-    #item-3:checked ~ .slider-container .slider-track {
+  
+     #item-3:checked ~ .slider-container .slider-track {
         transform: translateX(-100%);
     }
 }
   
-@media (max-width: 767px) {
+@media (min-width: 768px) {
+  .c-collecion-carousel__inner {
+    flex-direction: row;
+  }
+}
+  
+@media (max-width: 768px) {
     .slide {
         flex: 0 0 100%;
     }
@@ -321,7 +393,6 @@ input[type="radio"] {
     position: relative;
   }
 
-  /* imagen fija */
   .product-grid__media {
     flex: 1;
     position: sticky;
@@ -331,7 +402,6 @@ input[type="radio"] {
     max-height: 80vh;
   }
 
-  /* Columna scroll de productos */
   .product-grid__products-col {
     flex: 1;
     overflow-y: auto;
@@ -493,22 +563,18 @@ input[type="radio"] {
   flex-wrap: wrap;
 }
 
-
-/* Contenedor del menú de footer */
 .c-footer__menu-container {
   display: flex;
   flex: 1;
-  gap: 100px; /* Espaciado entre columnas */
+  gap: 100px;
 }
 
-  /* Contenedor de íconos sociales */
 .o-social-row__c-footer-social {
   display: flex;
-  gap: 20px; /* Espacio entre íconos */
+  gap: 20px;
   margin-top: 20px;
 }
 
-/* Enlaces de íconos sociales */
 .o-social-row__link {
   display: flex;
   align-items: center;
@@ -524,7 +590,6 @@ input[type="radio"] {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Íconos */
 .o-social-row__icon {
   width: 20px;
   height: 20px;
@@ -532,34 +597,29 @@ input[type="radio"] {
 }
 
 
-/* Columna del menú de footer */
 .c-footer-menu__column {
-  list-style-type: none; /* Elimina las viñetas */
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-/* Item de enlace en el menú */
 .c-footer-menu__link-item {
-  margin-bottom: 15px; /* Espacio entre enlaces */
+  margin-bottom: 15px;
 }
 
-/* Estilo del enlace */
 .c-footer-menu__link {
-  color: #333; /* Color base de los enlaces */
+  color: rgba(51, 51, 51, 1);
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 0.5px;
-  transition: opacity 0.3s ease; /* Transición suave para el hover */
+  transition: opacity 0.3s ease;
   display: inline-block;
 }
 
-/* Efecto hover para los enlaces */
 .c-footer-menu__link:hover {
-  opacity: 0.6; /* Hace el texto más transparente al pasar el cursor */
+  opacity: 0.6;
 }
 
-/* Clase para el tamaño de párrafo, por si necesitas mantenerla */
 .o-paragraph--2 {
   font-weight: 400;
   line-height: 1.4;
@@ -573,11 +633,15 @@ input[type="radio"] {
 
 .c-footer__address {
   font-size: 12px;
-  color: #666;
+  color: rgba(102, 102, 102, 1);
   margin-top: 10px;
 }
 
-/* Estructura responsive para el footer completo */
+.c-footer__address a {
+  color: rgba(102, 102, 102, 1);
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .c-footer__inner {
     flex-direction: column;
@@ -607,9 +671,6 @@ input[type="radio"] {
 }
 
 
-
-
-/* Contenedor principal del newsletter */
 .c-footer__newsletter-container {
   display: flex;
   flex: 1;
@@ -617,12 +678,10 @@ input[type="radio"] {
   max-width: 400px;
 }
 
-/* Contenedor del título */
 .o-newsletter__c-footer {
   margin: 0px 0 20px 0;
 }
 
-/* Estilo del título */
 .o-newsletter__tittle {
   font-size: 24px;
   font-weight: 500;
@@ -630,7 +689,6 @@ input[type="radio"] {
   line-height: 1.2;
 }
 
-/* Estilos para el contenedor del formulario */
 .c-footer__o-form {
   position: relative;
   display: flex;
@@ -638,30 +696,26 @@ input[type="radio"] {
   width: 100%;
 }
 
-/* Estilos para el input de correo */
 .o-newsletter__input {
   width: 100%;
-  padding: 12px 48px 12px 0; /* Espacio a la derecha para el botón */
+  padding: 12px 48px 12px 0;
   border: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgba(204, 204, 204, 1);
   background: transparent;
   outline: none;
   font-size: 16px;
-  color: #333;
+  color: rgba(51, 51, 51, 1);
   transition: border-color 0.3s ease;
 }
 
-/* Cambio de color del borde al enfocar */
 .o-newsletter__input:focus {
-  border-bottom-color: #333;
+  border-bottom-color: rgba(51, 51, 51, 1);
 }
 
-/* Ocultar el div duplicado con el placeholder */
 .o-newsletter__imput-container {
   display: none;
 }
 
-/* Estilo para el botón de envío */
 .o-newsletter__submit {
   position: absolute;
   right: 0;
@@ -677,31 +731,26 @@ input[type="radio"] {
   transition: transform 0.2s ease;
 }
 
-/* Estilo para el ícono SVG */
 .o-icon--btn-arrow {
-  color: #333; /* Color de la flecha */
+  color: rgba(51, 51, 51, 1);
   width: 20px;
   height: 12px;
 }
 
-/* Efecto hover para el botón */
 .o-newsletter__submit:hover {
   transform: translateY(-50%) translateX(3px);
 }
 
-/* Estilo para el placeholder */
 .o-newsletter__input::placeholder {
-  color: #999;
+  color: rgba(153, 153, 153, 1);
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-/* El placeholder desaparece cuando se enfoca el input */
 .o-newsletter__input:focus::placeholder {
   opacity: 0.5;
 }
 
-/* Añadir modo responsive */
 @media (max-width: 768px) {
   .c-footer__newsletter-container {
     max-width: 100%;
@@ -720,8 +769,6 @@ input[type="radio"] {
     max-width: 360px;
   }
 }
-
-
 
 /*
 .c-footer__lower-inner {
@@ -747,14 +794,12 @@ input[type="radio"] {
   max-width: 1200px;
 }
 
-/* Copyright text */
 .c-footer__copyright {
   font-size: 12px;
-  color: #bfbebe;
+  color: rgba(191, 190, 190, 1);
   margin: 0;
 }
 
-/* Store selector container */
 .c-footer__selector {
   display: flex;
   align-items: center;
@@ -763,12 +808,11 @@ input[type="radio"] {
 
 .c-footer__store-selector-title {
   font-size: 12px;
-  color: #282626
+  color: rgba(40, 38, 38, 1);
 }
 
-/* Custom select styling */
 .o-store-selector__select {
-  appearance: none; /* Remove default arrow */
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   background-color: transparent;
@@ -776,20 +820,20 @@ input[type="radio"] {
   padding: 5px 20px 5px 5px;
   margin: 0;
   font-size: 14px;
-  color: #333;
+  color: rgba(51, 51, 51, 1);
   cursor: pointer;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='6' viewBox='0 0 12 6'%3E%3Cpath d='M0 0l6 6 6-6z' fill='%23333'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 5px center;
 }
-
-/* Remove focus outline but keep it accessible */
+.o-store-selector__select:hover {
+  background-color: rgba(245, 245, 245, 1);
+}
 .o-store-selector__select:focus {
   outline: none;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .c-footer__lower {
     margin-left: 0px;
@@ -805,7 +849,7 @@ input[type="radio"] {
 }
 
 
-/* Botón flotante de WhatsApp en tonos grises */
+
 .whatsapp-float {
   position: fixed;
   bottom: 25px;
@@ -817,18 +861,18 @@ input[type="radio"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  background-color: #7e7d7d;
+  background-color: rgba(207,210,211,255);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
   transition: all 0.3s ease;
-  border: 1px solid #7e7d7d;
+  border: 1px solid rgba(207,210,211,255)
 }
 
 .whatsapp-float__link:hover {
   transform: scale(1.1);
-  background-color: #7e7d7d;
+  background-color: rgba(126, 125, 125, 1);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
@@ -838,12 +882,11 @@ input[type="radio"] {
 }
 
 .whatsapp-float__icon {
-  width: 26px;
-  height: 26px;
-  fill: #E8E8E8;
+  width: 35px;
+  height: 35px;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .whatsapp-float {
       bottom: 20px;

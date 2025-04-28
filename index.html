@@ -11,17 +11,37 @@
         <header class="c-header">
             <div class="c-header__inner">
                 <button class="c-header__inner__menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 14" data-inject-url="https://urth.co/cdn/shop/t/79/assets/icon-hamburger.svg?v=103896250390799765551731998787" class="o-icon o-icon--hamburger c-header__icon is-mobile-menu" data-icon="">
-                        <path d="M.74961.75H15.9496m-15.19999 6H15.9496m-15.19999 6H15.9496" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="square"></path>
-                    </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 14" data-inject-url="https://urth.co/cdn/shop/t/79/assets/icon-hamburger.svg?v=103896250390799765551731998787" class="o-icon o-icon--hamburger c-header__icon is-mobile-menu" data-icon="">
+                    <path d="M.74961.75H15.9496m-15.19999 6H15.9496m-15.19999 6H15.9496" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="square"></path>
+                </svg>
                 </button>
                 <a href="index.html" class="c-header__logo">
-                    <img src="media/rooledezma-logos-01.png" alt="" class="c-header__logo__img">
+                <img src="media/rooledezma-logos-01.png" alt="" class="c-header__logo__img">
                 </a>
                 <div class="c-header__right">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="o-icon o-icon--cart c-header__icon" data-icon="">
-                        <path d="M0 0v1.53754h3.05125c.32777 0 .60787.21621.71514.52853L5.1907 14.8769c.13111 1.1591 1.12039 2.048 2.27652 2.048h.16094c-.84028 0-1.52562.6907-1.52562 1.5376 0 .8468.68534 1.5375 1.52562 1.5375.84029 0 1.52563-.6907 1.52563-1.5375 0-.8469-.68534-1.5376-1.52563-1.5376h7.62794c-.8403 0-1.5256.6907-1.5256 1.5376 0 .8468.6853 1.5375 1.5256 1.5375s1.5256-.6907 1.5256-1.5375c0-.8469-.6853-1.5376-1.5256-1.5376h1.5258v-1.5375H7.46722c-.39332 0-.71513-.2883-.75685-.6787l-.09535-.8589h9.67818c1.0846 0 2.0322-.7807 2.2467-1.8498L20 4.62462H5.58403l-.32777-2.93093-.02384-.07207C4.9404.66066 4.05244.006006 3.05125 0H0zm18.1406 6.16211H5.75684l.68533 6.15019h9.85103c.3695 0 .6734-.2523.7509-.6187l1.0965-5.53149z" fill="#111" fill-rule="evenodd"></path>
+                    <a href="#search-panel" class="c-header__link is-search">Search</a></div>
+            </div>
+
+            <div class="c-search-overlay" id="search-panel">
+                <div class="c-search-container">
+                  <!-- Enlace para cerrar el panel -->
+                  <a href="#" class="close-search">Close</a>
+                  
+                  <div class="c-search-field">
+                    <svg class="c-search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
+                    <input type="text" placeholder="Search Here" class="c-search-input">
+                  </div>
+                  <div class="c-popular-searches">
+                    <h3>Popular search</h3>
+                    <div class="c-search-tags">
+                        <a href="#" class="c-search-tag">InfraRed</a>
+                        <a href="#" class="c-search-tag">Design</a>
+                        <a href="#" class="c-search-tag">Photos</a>
+                    </div>
+                  </div>
                 </div>
             </div>
         </header>
@@ -276,9 +296,8 @@
             </div>
         </footer>
         <div class="whatsapp-float">
-            <a href="https://wa.me/+59170389077" class="whatsapp-float__link" target="_blank" aria-label="Contáctanos por WhatsApp">
+            <a href="https://wa.me/+59170389077" class="whatsapp-float__link" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="whatsapp-float__icon">
-                    <!-- Icono de WhatsApp -->
                     <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" fill="white"/>
                 </svg>
             </a>
